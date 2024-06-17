@@ -54,3 +54,11 @@ h1 {
     display: block; /* Make the button a block element */
     width: 100%; /* Optional: Make the button take the full width of its container */
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0; /* Optional: Adding a background color */
+    padding: 10px; /* Optional: Adding padding to the footer */
+}
