@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s;
+}
+
+.bg-color-1 {
+    background-color: #FF6347; /* Tomato */
+}
+
+.bg-color-2 {
+    background-color: #4682B4; /* Steel Blue */
+}
+
+.bg-color-3 {
+    background-color: #3CB371; /* Medium Sea Green */
+}
+
+.bg-color-4 {
+    background-color: #FFD700; /* Gold */
+}
+
+.bg-color-5 {
+    background-color: #8A2BE2; /* Blue Violet */
+}
+
+
+table {
+    margin: 20px auto; /* This will center the table horizontally */
+}
+
+h1 {
+    text-align: center;
+}
+
+.top-line {
+    text-align: center;
+    margin: 20px 0;
+}

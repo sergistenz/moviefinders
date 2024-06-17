@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieFinderS</title>
+    <link href="{{ url_for('static', filename = 'css/style.css')}}" rel="stylesheet" />
+</head>
+<body>
+    <h1> Welcome to MovieFinderS!</h1>
+
+    <form action="/moviefinder">
+        <button type="submit">Click here to discover movies you haven't seen yet!</button>
+    </form> 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define an array of class names
+            const classes = ['bg-color-1', 'bg-color-2', 'bg-color-3', 'bg-color-4', 'bg-color-5'];
+
+            // Select a random class
+            const randomClass = classes[Math.floor(Math.random() * classes.length)];
+
+            // Apply the random class to the body
+            document.body.classList.add(randomClass);
+        });
+    </script>
+</body>
+</html>

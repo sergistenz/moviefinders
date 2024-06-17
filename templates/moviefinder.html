@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 movies</title>
+    <link href="{{ url_for('static', filename = 'css/style.css')}}" rel="stylesheet" />
+</head>
+<body>
+    <div class="top-line">
+    <h1>Check out the top 10 movies from <a href="https://www.themoviedb.org" target="_blank">TMDB</a>. Pick a movie you like to get new recommendations!</h1>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Info </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+            <tr>
+                <td><a href="{{ url_for('get_rec_movies', movie_id=movie['id']) }}"><img src="https://image.tmdb.org/t/p/w1280/{{ movie['poster_path'] }}" alt="Movie Poster" width="200"></a></td>
+                <td style="text-align: center; max-width: 500px;">
+                    <div>
+                        <p><strong> {{ movie['title'] }} ({{ movie['release_date'][:4] }}) </strong></p>
+                        <p>{{ movie['overview'] }}</p>
+                    </div>
+                </td>   
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define an array of class names
+            const classes = ['bg-color-1', 'bg-color-2', 'bg-color-3', 'bg-color-4', 'bg-color-5'];
+
+            // Select a random class
+            const randomClass = classes[Math.floor(Math.random() * classes.length)];
+
+            // Apply the random class to the body
+            document.body.classList.add(randomClass);
+        });
+    </script>
+
+</body>
+</html>

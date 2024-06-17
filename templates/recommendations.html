@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recommendations</title>
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+<body>
+    <h1>Vote for a movie from the list below:</h1>
+    <h2>OH NO! - You don't like the movie</h2>
+    <h2>OH YES! - You did like the movie!</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Info</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in recommended_movies %}
+            <tr>
+                <td><img src="https://image.tmdb.org/t/p/w1280/{{ movie['poster_path'] }}" alt="Movie Poster" width="200"></td>
+                <td style="text-align: center; max-width: 500px;">
+                    <div>
+                        <p><strong> {{ movie['title'] }} ({{ movie['release_date'][:4] }}) </strong></p>
+                        <p>{{ movie['overview'] }}</p>
+                    </div>
+                </td>   
+                <td>
+                    <form action="/rate_movie" method="POST" style="text-align: center;">
+                        <input type="hidden" name="movie_id" value="{{ movie['id'] }}">
+
+                        <p>Rate the movie.</p>
+                        <p>{{ movie['id']}}</p>
+                        <button type="submit" name="rating" value="0">Oh no!</button>
+                        <button type="submit" name="rating" value="1">Oh YES!</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define an array of class names
+            const classes = ['bg-color-1', 'bg-color-2', 'bg-color-3', 'bg-color-4', 'bg-color-5'];
+
+            // Select a random class
+            const randomClass = classes[Math.floor(Math.random() * classes.length)];
+
+            // Apply the random class to the body
+            document.body.classList.add(randomClass);
+        });
+    </script>
+</body>
+</html>
