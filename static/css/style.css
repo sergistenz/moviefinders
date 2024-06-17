@@ -59,6 +59,6 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #f0f0f0; /* Optional: Adding a background color */
-    padding: 10px; /* Optional: Adding padding to the footer */
+
+    padding: 5px; /* Optional: Adding padding to the footer */
 }
