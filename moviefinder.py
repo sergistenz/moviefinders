@@ -43,7 +43,7 @@ def genre_matrix(movie_df):
     movie_genre_df = pd.DataFrame()
     # Iterate over each unique genre ID and check if it exists in the 'genre_ids' list for each row
     for genre_id in all_genres:
-        movie_genre_df[str(genre_id) + '_genre'] = movie_df['genre_ids_str'].apply(lambda x: 1.0 if str(genre_id) in re.findall(r'\d+', x) else 0.0)
+        movie_genre_df[str(genre_id) + '_genre'] = movie_df['genre_ids_str'].apply(lambda x: 2.0 if str(genre_id) in re.findall(r'\d+', x) else 0.0)
     return movie_genre_df
 
 

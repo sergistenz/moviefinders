@@ -7,22 +7,18 @@
         <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     </head>
 <body>
-    <h1>Vote for a movie from the list below:</h1>
-    <h2>OH NO! - You don't like the movie</h2>
-    <h2>OH YES! - You did like the movie!</h2>
-
+    <div class = 'recommendation_text' >
+    <h2>To get new recommendations, vote one a movie using the options:</h1>
+    <h3>OH NO! Not My Taste, try with something else!</h3>
+    <h3>OH YES! I Liked It, bring more of that!</h3>
+    <h5>This page is a work in progress, new features coming soon!</h5>    
+    </div>
     <table border="1">
-        <thead>
-            <tr>
-                <th>Movie</th>
-                <th>Info</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
+
         <tbody>
             {% for movie in recommended_movies %}
             <tr>
-                <td><img src="https://image.tmdb.org/t/p/w1280/{{ movie['poster_path'] }}" alt="Movie Poster" width="200"></td>
+                <td><a href="https://www.themoviedb.org/movie/{{ movie['id'] }}"></a><img src="https://image.tmdb.org/t/p/w1280/{{ movie['poster_path'] }}" alt="Movie Poster" width="200"></td>
                 <td style="text-align: center; max-width: 500px;">
                     <div>
                         <p><strong> {{ movie['title'] }} ({{ movie['release_date'][:4] }}) </strong></p>
@@ -32,11 +28,10 @@
                 <td>
                     <form action="/rate_movie" method="POST" style="text-align: center;">
                         <input type="hidden" name="movie_id" value="{{ movie['id'] }}">
-
-                        <p>Rate the movie.</p>
-                        <p>{{ movie['id']}}</p>
-                        <button type="submit" name="rating" value="0">Oh no!</button>
-                        <button type="submit" name="rating" value="1">Oh YES!</button>
+                        <div class="button-wrapper">
+                        <button type="submit" name="rating" value="0">OH NO!</button>
+                        <button type="submit" name="rating" value="1">OH YES!</button>
+                        </div>
                     </form>
                 </td>
             </tr>
